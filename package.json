@@ -4,8 +4,10 @@
   "description": "Javascript function that triggers browser to save given url as a files",
   "main": "url-download.js",
   "scripts": {
-    "lint": "eslint url-download.js",
-    "test": "npm run lint"
+    "lint": "eslint .",
+    "test": "npm run lint && node --test tests/*.test.mjs && npm run test:types",
+    "test:types": "tsc --noEmit --strict --module esnext --moduleResolution bundler --target es2020 tests/types.mts",
+    "test:browser": "node tests/browser.mjs"
   },
   "repository": {
     "type": "git",
@@ -25,9 +27,10 @@
   "homepage": "https://github.com/m0rg0t/js-url-downloader",
   "typings": "js-url-download.d.ts",
   "devDependencies": {
-      "@typescript-eslint/eslint-plugin": "^3.10.1",
-      "@typescript-eslint/parser": "^3.10.1",
-      "eslint": "^7.7.0",
-      "eslint-config-google": "^0.14.0"
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.12.0",
+    "globals": "^17.13.0",
+    "playwright": "^1.63.0",
+    "typescript": "^7.0.2"
   }
 }
